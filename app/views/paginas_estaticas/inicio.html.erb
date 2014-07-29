@@ -1,6 +1,12 @@
-<% provide(:titulo, 'Inicio')%>
+<div class="center hero-unit">
+
 <h1>Mi Aplicación</h1>
+<h2>Esta página es el comienzo de una aplicación sencilla pero que en un futuro crecerá</h2>
 <p>
   Esta es la página de prueba para
   las vistas de mi aplicación
 </p>
+<%= link_to "¡Registrate, es rápido y fácil!", registro_path, class: "btn btn-large btn-primary" %>
+</div>
+
+<%= link_to image_tag("rails_icono.png", alt: "Rails Icono"), 'http://rubyonrails.org/' %>

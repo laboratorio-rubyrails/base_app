@@ -1,7 +1,11 @@
 BaseApp::Application.routes.draw do
-  get "paginas_estaticas/inicio"
-  get "paginas_estaticas/ayuda"
-  get "paginas_estaticas/acercade"
+  get "usuarios/new"
+  
+  root 'paginas_estaticas#inicio'
+  match '/registro', to: 'usuarios#new', via: 'get'
+  match '/ayuda', to: 'paginas_estaticas#ayuda', via: 'get'
+  match '/acercade', to: 'paginas_estaticas#acercade', via: 'get'
+  match '/contacto', to: 'paginas_estaticas#contacto', via: 'get'
 
   
   # The priority is based upon order of creation: first created -> highest priority.

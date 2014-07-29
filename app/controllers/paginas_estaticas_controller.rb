@@ -10,4 +10,7 @@ class PaginasEstaticasController < ApplicationController
 
   def prueba
   end
+
+  def contacto
+  end
 end
