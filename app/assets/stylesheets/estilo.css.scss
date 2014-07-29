@@ -1,0 +1,105 @@
+@import "bootstrap";
+
+/* Estilo general */
+
+$color_gris: #F2F2F2;
+
+$color_gris_oscuro: #6E6E6E;
+
+$color_blanco: #999;
+
+$color_negro: #000001;
+
+html {
+	overflow-y: scroll;
+}
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  h1 {
+    margin-bottom: 10px;
+  }
+}
+
+/* Estilo para texto */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 5em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.3em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #959;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* Estilo para encabezado */ 
+
+#encabezado {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.8em;
+  color: $color_gris;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  line-height: 1;
+  &:hover {
+    color: $color_gris;
+    text-decoration: none;
+  }
+}
+
+/* Estilo para pie de página */ 
+
+footer {
+  margin-top: 50px;
+  padding-top: 5px;
+  border-top: 1px solid $color_gris_oscuro;
+  color: $color_blanco;
+  a {
+    color: $color_blanco;
+    &:hover {
+      color: $color_negro;
+    } 
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
+}
