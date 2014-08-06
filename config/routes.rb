@@ -1,6 +1,5 @@
 BaseApp::Application.routes.draw do
-  get "usuarios/new"
-  
+  resources :usuarios
   root 'paginas_estaticas#inicio'
   match '/registro', to: 'usuarios#new', via: 'get'
   match '/ayuda', to: 'paginas_estaticas#ayuda', via: 'get'

@@ -9,8 +9,12 @@
 <body>
     <%= render 'layouts/etiquetaHeader'%>
     <div class="container">
+    <% flash.each do |clave, valor| %>
+      <div class="alert alert-<%= clave %>"><%= valor %></div>
+    <% end %>
       <%= yield %>
       <%= render 'layouts/etiquetaFooter' %>
+      <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
 </html>

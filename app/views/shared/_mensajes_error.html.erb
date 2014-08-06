@@ -1,0 +1,30 @@
+<% if @usuario.errors.any? %>
+  <div id="errores_estilo">
+    <div class="alert alert-error">
+      <% if @usuario.errors.count == 1 %>
+         Existe 1 error
+      <% else %>
+      	 Existen <%= @usuario.errors.count %> errores
+      <% end %>
+    </div>
+    <ul>
+    <% @usuario.errors.full_messages.each do |msg| %>
+        <% if msg == "Nombre can't be blank" %>
+             <li>* <%= "Debes llenar el campo con tu nombre" %></li>
+        <% elsif msg == "Email can't be blank" %>
+             <li>* <%= "Debes llenar el campo con tu correo electrónico (email)" %></li>
+        <% elsif msg == "Email is invalid" %>
+             <li>* <%= "El correo electrónico que proporcionaste no es válido" %></li>
+        <% elsif msg == "Password can't be blank" %>
+             <li>* <%= "La contraseña no puede ser vacía" %></li>
+        <% elsif msg == "Password is too short (minimum is 8 characters)" %>
+             <li>* <%= "La longitud mínima para la contraseña es de 8 caracteres" %></li>
+        <% elsif msg == "Password confirmation doesn't match Password" %>
+             <li>* <%= "La contraseña no coincide" %></li>
+        <% elsif msg == "Email has already been taken" %>
+             <li>* <%= "El correo ya está registrado" %></li>
+        <% end %>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

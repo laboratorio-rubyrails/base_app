@@ -1,3 +1,24 @@
 <% provide(:title, 'Registro') %>
 <h1>Registro</h1>
-<p>Crear nuevos usuarios...</p>
+
+<div class = "row">
+  <div class = "span6 offset3">
+    <%= form_for(@usuario) do |atributo| %>
+      <%= render 'shared/mensajes_error' %>
+      
+    	<%= atributo.label :nombre %>
+    	<%= atributo.text_field :nombre %>
+
+    	<%= atributo.label :email %>
+    	<%= atributo.text_field :email %>
+
+    	<%= atributo.label :password %>
+    	<%= atributo.password_field :password %>
+
+    	<%= atributo.label :password_confirmation, "Confirmación" %>
+    	<%= atributo.password_field :password_confirmation %>
+
+    	<%= atributo.submit "¡Crear tu cuenta!", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+ </div>
