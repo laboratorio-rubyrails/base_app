@@ -6,7 +6,24 @@
         <ul class="nav pull-right">
           <li><%= link_to "Inicio",    root_path %></li>
           <li><%= link_to "Ayuda",    ayuda_path %></li>
+          <% if inicio_sesion? %>
+            <li><%= link_to "Usuarios", '#' %></li>
+            <li id="fat-menu" class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Cuenta<b class="caret"></b>
+              </a>
+               <ul class="dropdown-menu">
+                <li><%= link_to "Perfil", usuario_actual %></li>
+                <li><%= link_to "Configuración", '#' %></li>
+                <li class="divider"></li>
+                <li>
+                  <%= link_to "Cerrar sesión", cierrases_path, method: "delete" %>
+                </li>
+              </ul>
+              </li>
+          <% else %>
           <li><%= link_to "Entrar", '#' %></li>
+          <% end %>
         </ul>
       </nav>
     </div>

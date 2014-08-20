@@ -12,6 +12,7 @@ class UsuariosController < ApplicationController
   def create
   	@usuario = Usuario.new(usuario_params)
   	if @usuario.save
+      inicia_sesion @usuario
       flash[:success] = "Te has registrado con éxito: #{@usuario.nombre}!"
       redirect_to @usuario
   	else

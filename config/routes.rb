@@ -1,7 +1,10 @@
 BaseApp::Application.routes.draw do
   resources :usuarios
+  resources :sesiones, only: [:new, :create, :destroy]
   root 'paginas_estaticas#inicio'
-  match '/registro', to: 'usuarios#new', via: 'get'
+  match '/registro',  to: 'usuarios#new', via: 'get'
+  match '/iniciases', to: 'sesiones#new', via: 'get'
+  match '/cierrases', to: 'sesiones#destroy', via: 'delete'
   match '/ayuda', to: 'paginas_estaticas#ayuda', via: 'get'
   match '/acercade', to: 'paginas_estaticas#acercade', via: 'get'
   match '/contacto', to: 'paginas_estaticas#contacto', via: 'get'

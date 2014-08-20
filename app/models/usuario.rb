@@ -6,4 +6,19 @@ class Usuario < ActiveRecord::Base
 					  uniqueness: { case_sensitive: false }
 	has_secure_password
 	validates :password, length: { minimum: 8 }
+
+	def Usuario.new_token_recuerdo
+      SecureRandom.urlsafe_base64
+  	end
+
+  	def Usuario.digest(token)
+      Digest::SHA1.hexdigest(token.to_s)
+  	end
+
+private
+
+    def create_token_recuerdo
+      self.token_recuerdo = Usuario.digest(Usuario.new_token_recuerdo)
+    end
 end
+

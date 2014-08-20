@@ -1,0 +1,22 @@
+<% provide(:title, 'Inicio de sesión') %>
+<h1>Iniciar sesión</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+
+    <%= form_for(:sesion, url: sesiones_path) do |atributo| %>
+
+      <%= atributo.label :email %>
+      <%= atributo.text_field :email %>
+
+      <%= atributo.label :password %>
+      <%= atributo.password_field :password %>
+
+      <%= atributo.submit "Inicia sesión", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+    <p>¿No tienes cuenta? 
+	   <br><%= link_to "¡Registrate ahora!", registro_path %></br>
+    </p>
+  </div>
+</div>
