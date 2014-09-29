@@ -1,0 +1,13 @@
+
+<% provide(:titulo, 'Todos los usuarios') %>
+<h1>Listado de usuarios</h1>
+
+<%= will_paginate %>
+
+<ul class="listaUsuarios">
+  <% @usuarios.each do |usuario| %>
+    <%= render @usuarios %>
+  <% end %>
+</ul>
+
+<%= will_paginate %>

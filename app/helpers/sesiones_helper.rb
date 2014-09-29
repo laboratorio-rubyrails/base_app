@@ -20,10 +20,23 @@ module SesionesHelper
     @usuario_actual ||= Usuario.find_by(token_recuerdo: token_recuerdo)
   end
 
+  def usuario_actual?(usuario)
+    usuario == usuario_actual
+  end
+
   def cerrar_sesion
     usuario_actual.update_attribute(:token_recuerdo, 
                                     Usuario.digest(Usuario.new_token_recuerdo))
     cookies.delete(:token_recuerdo)
     self.usuario_actual = nil
+  end
+
+  def redirige_antes(default)
+    redirect_to(session[:anterior_a] || default)
+    session.delete(:anterior_a)
+  end
+
+  def guardar_ubicacion
+    session[:anterior_a] = request.url if request.get?
   end
 end

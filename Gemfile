@@ -6,6 +6,13 @@ gem 'rails', '4.0.4'
 # Gema para bcrypt
 gem 'bcrypt-ruby', '3.1.2'
 
+# Gema para Faker
+gem 'faker', '1.1.2'
+
+# Gemas necesarias para paginar
+gem 'will_paginate', '3.0.4'
+gem 'bootstrap-will_paginate', '0.0.9'
+
 # Instalando Bootstrap
 gem 'bootstrap-sass', '2.3.2.0'
 

@@ -8,7 +8,7 @@ class SesionesController < ApplicationController
 	  	usuario = Usuario.find_by(email: params[:sesion][:email].downcase)
 	  	if usuario && usuario.authenticate(params[:sesion][:password])
 	  		inicia_sesion usuario
-	  		redirect_to usuario
+	  		redirige_antes usuario
 	  	else
 	  		flash.now[:error] = "Revisa que tu email y contraseña sean correctos"
 	  		render 'new'

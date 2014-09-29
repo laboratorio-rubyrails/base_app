@@ -1,0 +1,28 @@
+
+<% provide(:titulo, "Editar usuario") %>
+<h1>Actualiza tu perfil</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@usuario) do |atributo| %>
+      <%= render 'shared/mensajes_error' %>
+
+      <%= atributo.label :nombre %>
+      <%= atributo.text_field :nombre %>
+
+      <%= atributo.label :email %>
+      <%= atributo.text_field :email %>
+
+      <%= atributo.label :password %>
+      <%= atributo.password_field :password %>
+
+      <%= atributo.label :password_confirmation, "Confirmación" %>
+      <%= atributo.password_field :password_confirmation %>
+
+      <%= atributo.submit "Guardar cambios", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+    <%= gravatar_de @usuario %>
+    <a href="http://gravatar.com/emails">Cambiar imagen</a>
+  </div>
+</div>
