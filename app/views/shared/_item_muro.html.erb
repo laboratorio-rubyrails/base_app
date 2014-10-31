@@ -1,0 +1,15 @@
+<li id="<%= item_muro.id %>">
+	<%= link_to gravatar_de(item_muro.usuario), item_muro.usuario %>
+	<span class="usuario">
+		<%= link_to item_muro.usuario.nombre, item_muro.usuario %>
+	</span>
+	<span class="contenido"><%= item_muro.contenido %></span>
+	<span class="timestamp">
+		Creado hace <%= time_ago_in_words(item_muro.created_at) %>.
+	</span>
+	<% if usuario_actual?(item_muro.usuario) %>
+		<%= link_to "eliminar", item_muro, method: :delete,
+		data: { confirm: "¿Estás seguro?" },
+		title: item_muro.contenido %>
+<% end %>
+</li>

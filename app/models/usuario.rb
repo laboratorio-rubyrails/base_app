@@ -1,4 +1,5 @@
 class Usuario < ActiveRecord::Base
+	has_many :mensajes, dependent: :destroy
 	before_save { self.email = email.downcase }
 	validates :nombre, presence: true, length: { maximum: 50 }
 	VALIDA_EMAIL = /\A[\w+\-.]+@[a-z\d\-]+(?:\.[a-z\d\-]+)*\.[a-z]+\z/
@@ -14,6 +15,10 @@ class Usuario < ActiveRecord::Base
   	def Usuario.digest(token)
       Digest::SHA1.hexdigest(token.to_s)
   	end
+
+  	def muro
+  		Mensaje.where("usuario_id = ?", id)
+    end
 
 private
 

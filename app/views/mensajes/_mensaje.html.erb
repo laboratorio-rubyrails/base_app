@@ -1,0 +1,11 @@
+<li>
+	<span class="contenido"><%= mensaje.contenido %></span>
+	<span class="timestamp">
+		Creado hace <%= time_ago_in_words(mensaje.created_at) %>.
+	</span>
+	<% if usuario_actual?(mensaje.usuario) %>
+		<%= link_to "eliminar", mensaje, method: :delete,
+		data: { confirm: "¿Estás seguro?" },
+		title: mensaje.contenido %>
+	<% end %>
+</li>

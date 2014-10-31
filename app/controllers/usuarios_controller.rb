@@ -10,6 +10,7 @@ class UsuariosController < ApplicationController
 
   def show
     @usuario = Usuario.find(params[:id])
+    @mensajes = @usuario.mensajes.paginate(page: params[:page])
   end
 
   def new
@@ -54,13 +55,6 @@ class UsuariosController < ApplicationController
   end 
 
   #filtros
-
-  def usuario_logueado 
-   unless inicio_sesion?
-     guardar_ubicacion
-     redirect_to iniciases_url, notice: "Por favor, inicia sesión"
-   end
-  end
 
   def usuario_valido
     @usuario = Usuario.find(params[:id])

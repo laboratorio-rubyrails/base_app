@@ -15,5 +15,10 @@ namespace :db do
                    password: password,
                    password_confirmation: password)
     end
+    usuarios = Usuario.all(limit: 5)
+    50.times do
+      contenido = Faker::Lorem.sentence(5)
+      usuarios.each { |usuario| usuario.mensajes.create!(contenido: contenido) }
+    end
   end
 end

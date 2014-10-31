@@ -192,3 +192,36 @@ input{
     }
   }
 }
+
+/*Estilo para mensajes*/
+
+.mensajes {
+  list-style: square;
+  margin: 20px 0 0 0;
+  li {
+  padding: 10px 0;
+  border-top: 2.5px solid #dcdcdc;
+  }
+}
+
+.timestamp {
+  color: #bcbcbc;
+}
+
+.contenido {
+display: block;
+margin-bottom: 20px;
+}
+
+.gravatar {
+  float: left;
+  margin-right: 10px;
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+

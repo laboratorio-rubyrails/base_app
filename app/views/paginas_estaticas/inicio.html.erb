@@ -1,12 +1,30 @@
-<div class="center hero-unit">
+<% if inicio_sesion? %>
+	<div class="row">
+		<aside class="span4">
+			<section>
+				<%= render 'shared/datos_usuario' %>
+			</section>
+			<section>
+				<%= render 'shared/form_mensaje' %>
+			</section>
+		</aside>
+		<div class="span8">
+			<h3>Muro de mensajes</h3>
+			<%= render 'shared/muro' %>
+		</div>
+	</div>
+<% else %>
 
-<h1>Mi Aplicación</h1>
-<h2>Esta página es el comienzo de una aplicación sencilla pero que en un futuro crecerá</h2>
-<p>
-  Esta es la página de prueba para
-  las vistas de mi aplicación
-</p>
+	<div class="center hero-unit">
+
+		<h1>Mi Aplicación</h1>
+		<h2>Esta página es el comienzo de una aplicación sencilla pero que en un futuro crecerá</h2>
+		<p>
+		    Esta es la página de prueba para
+  			las vistas de mi aplicación
+		</p>
 <%= link_to "¡Registrate, es rápido y fácil!", registro_path, class: "btn btn-large btn-primary" %>
-</div>
+	</div>
 
 <%= link_to image_tag("rails_icono.png", alt: "Rails Icono"), 'http://rubyonrails.org/' %>
+<% end %>

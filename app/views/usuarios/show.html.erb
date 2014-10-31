@@ -9,6 +9,15 @@
 			</h1>
 		</section>
 	</aside>
+	<div class="span8">
+		<% if @usuario.mensajes.any? %>
+			<h3>Mensajes (<%= @usuario.mensajes.count %>)</h3>
+			<ol class="mensajes">
+				<%= render @mensajes %>
+			</ol>
+			<%= will_paginate @mensajes %>
+		<% end %>
+	</div>
 </div>
 
 

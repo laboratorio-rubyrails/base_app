@@ -1,5 +1,10 @@
 class PaginasEstaticasController < ApplicationController
+  
   def inicio
+    if inicio_sesion?
+      @mensaje = usuario_actual.mensajes.build
+      @items_muro = usuario_actual.muro.paginate(page: params[:page])
+    end
   end
 
   def ayuda

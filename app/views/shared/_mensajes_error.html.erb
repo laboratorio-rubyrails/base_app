@@ -1,14 +1,14 @@
-<% if @usuario.errors.any? %>
+<% if object.errors.any? %>
   <div id="errores_estilo">
     <div class="alert alert-error">
-      <% if @usuario.errors.count == 1 %>
+      <% if object.errors.count == 1 %>
          Existe 1 error
       <% else %>
-      	 Existen <%= @usuario.errors.count %> errores
+      	 Existen <%= object.errors.count %> errores
       <% end %>
     </div>
     <ul>
-    <% @usuario.errors.full_messages.each do |msg| %>
+    <% object.errors.full_messages.each do |msg| %>
         <% if msg == "Nombre can't be blank" %>
              <li>* <%= "Debes llenar el campo con tu nombre" %></li>
         <% elsif msg == "Email can't be blank" %>

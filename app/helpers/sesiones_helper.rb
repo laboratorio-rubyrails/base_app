@@ -1,3 +1,4 @@
+#encoding: UTF-8
 module SesionesHelper
 
   def inicia_sesion(usuario)
@@ -23,6 +24,13 @@ module SesionesHelper
   def usuario_actual?(usuario)
     usuario == usuario_actual
   end
+
+  def usuario_logueado 
+    unless inicio_sesion?
+      guardar_ubicacion
+      redirect_to iniciases_url, notice: "Por favor, inicia sesión"
+    end
+  end    
 
   def cerrar_sesion
     usuario_actual.update_attribute(:token_recuerdo, 

@@ -1,0 +1,7 @@
+<%= form_for(@mensaje) do |atributo| %>
+	<%= render 'shared/mensajes_error', object: atributo.object %>
+		<div class="field">
+			<%= atributo.text_area :contenido, placeholder: "Escribe lo que piensas..." %>
+		</div>
+	<%= atributo.submit "Enviar", class: "btn btn-large btn-primary" %>
+<% end %>

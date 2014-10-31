@@ -1,0 +1,6 @@
+<% if @items_muro.any? %>
+	<ol class="mensajes">
+		<%= render partial: 'shared/item_muro', collection: @items_muro %>
+	</ol>
+<%= will_paginate @items_muro %>
+<% end %>
