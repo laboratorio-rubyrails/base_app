@@ -17,7 +17,7 @@ namespace :db do
     end
     usuarios = Usuario.all(limit: 5)
     50.times do
-      contenido = Faker::Lorem.sentence(5)
+      contenido = Faker::Lorem.sentence(6)
       usuarios.each { |usuario| usuario.mensajes.create!(contenido: contenido) }
     end
   end

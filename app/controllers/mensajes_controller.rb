@@ -2,7 +2,7 @@
 
 class MensajesController < ApplicationController
 	before_action :usuario_logueado, only: [ :create, :destroy]
-	before_action :usuario_mensajes,   only: :destroy
+	before_action :usuario_valido,   only: :destroy
 
 	def create
 		@mensaje = usuario_actual.mensajes.build(mensaje_params)
@@ -27,7 +27,7 @@ class MensajesController < ApplicationController
 		params.require(:mensaje).permit(:contenido)
 	end
 
-	def usuario_mensajes
+	def usuario_valido
 		@mensaje = usuario_actual.mensajes.find_by(id: params[:id])
 		redirect_to root_url if @mensaje.nil?
 	end
